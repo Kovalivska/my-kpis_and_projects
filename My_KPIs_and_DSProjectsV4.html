@@ -179,7 +179,6 @@
       color: #6c757d;
     }
 
-    /* PROJECTS SECTION */
     .projects-section {
       grid-column: span 2;
     }
@@ -244,7 +243,6 @@
       margin-bottom: 1em;
     }
 
-    /* Responsive - tablets */
     @media (max-width: 1024px) {
       .container {
         grid-template-columns: 1fr;
@@ -260,33 +258,25 @@
       }
     }
 
-    /* Responsive - mobile */
     @media (max-width: 600px) {
-      .kpi-summary {
-        grid-template-columns: 1fr;
-      }
-      .header h1 {
-        font-size: 1.5em;
-      }
       .chart-container canvas {
         height: 280px !important;
       }
 
-      /* Mobile timeline adjustments */
       .timeline-wrapper {
+        height: auto !important;
         display: flex;
         flex-direction: column;
-        gap: 2em;
+        align-items: flex-start;
         padding-left: 20px;
-        position: relative;
+        margin-top: 2em;
       }
 
       .timeline-wrapper::before {
-        left: 10px;
         top: 0;
-        height: auto !important;
+        left: 10px;
         width: 2px;
-        position: absolute;
+        height: 100%;
       }
 
       .timeline-item {
@@ -294,6 +284,7 @@
         left: auto !important;
         transform: none !important;
         text-align: left !important;
+        margin-bottom: 2em;
         padding-left: 25px;
         width: 100%;
         box-sizing: border-box;
@@ -305,7 +296,7 @@
         position: absolute;
         top: 0.5em;
         left: 0 !important;
-        transform: none !important;
+        transform: translateX(0) !important;
       }
 
       .timeline-content {
@@ -359,11 +350,11 @@
 
     <div class="charts-area">
       <div class="card chart-container">
-        <h3 style="text-align:center;font-size:1em;color:var(--primary-color);margin-bottom:0.5em;">Skill Radar</h3>
+        <h3 style="text-align:center; font-size:1em; color: var(--primary-color); margin-bottom: 0.5em;">Skill Radar</h3>
         <canvas id="skillRadarChart"></canvas>
       </div>
       <div class="card chart-container">
-        <h3 style="text-align:center;font-size:1em;color:var(--primary-color);margin-bottom:0.5em;">Projects per Year</h3>
+        <h3 style="text-align:center; font-size:1em; color: var(--primary-color); margin-bottom: 0.5em;">Projects per Year</h3>
         <canvas id="projectsBarChart"></canvas>
       </div>
     </div>
@@ -405,26 +396,41 @@
       options: {
         ...chartDefaultOptions,
         plugins: { legend: { display: false } },
-        scales: { r: { suggestedMin:0, suggestedMax:5, ticks:{stepSize:1}, pointLabels:{font:{size:12}} } }
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 5,
+            ticks: { stepSize: 1 },
+            pointLabels: { font: { size: 12 } }
+          }
+        }
       }
     });
 
     new Chart(document.getElementById('projectsBarChart'), {
-      type: 'bar', data: {
-        labels:['2018','2019','2024','2025'],
+      type: 'bar',
+      data: {
+        labels: ['2018', '2019', '2024', '2025'],
         datasets: [{
-          label:'Projects',
-          data:[4,2,2,7],
+          label: 'Projects',
+          data: [4, 2, 2, 7],
           backgroundColor: secondaryColor,
-          borderRadius:4, borderWidth:0
+          borderRadius: 4,
+          borderWidth: 0
         }]
       },
       options: {
         ...chartDefaultOptions,
         plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero:true, ticks:{stepSize:1} } }
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        }
       }
     });
   </script>
 </body>
 </html>
+

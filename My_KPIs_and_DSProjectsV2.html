@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профессиональный дэшборд | Свитлана Коваливская</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #008080;
+      --secondary-color: #ff7f50;
+      --background-color: #f8f9fa;
+      --font-color: #2c3e50;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 10px rgba(44, 62, 80, 0.1);
+      --border-radius: 10px;
+      --line-color: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-color);
+      color: var(--font-color);
+      margin: 0;
+      padding: 1em;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+
+    .header {
+      grid-column: span 2;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2em;
+      margin: 0.3em 0 0.2em;
+      color: var(--primary-color);
+    }
+
+    .header p {
+      font-size: 1em;
+      margin: 0.2em 0 1em;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
+      font-size: 0.95em;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    .contact-links i {
+      font-size: 1em;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1em;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .kpi-summary {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1em;
+      text-align: center;
+    }
+
+    .kpi-value {
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0.3em 0;
+      color: var(--primary-color);
+    }
+
+    .kpi-label {
+      font-size: 0.95em;
+      font-weight: 600;
+    }
+
+    .charts-area {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+
+    .chart-container canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+
+    .timeline-wrapper {
+      grid-column: span 2;
+      position: relative;
+      height: 115px; /* Увеличил высоту, чтобы было место для вертикального контента */
+      padding: 1em;
+      margin-top: 1em;
+    }
+
+    .timeline-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 80px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: var(--line-color);
+      z-index: 0;
+    }
+
+    .timeline-item {
+      position: absolute;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 1px var(--primary-color);
+      position: absolute;
+      top: 68px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .timeline-content {
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .timeline-content .year {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      font-size: 0.9em;
+      color: var(--primary-color);
+    }
+
+    .timeline-content h3 {
+      margin: 0.4em 0 0.2em;
+      font-size: 0.9em;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+    
+    /* НОВАЯ СЕКЦИЯ ПРОЕКТОВ */
+    .projects-section {
+      grid-column: span 2;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+    }
+    
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5em;
+    }
+    
+    .project-icon {
+      font-size: 1.2em;
+      color: var(--primary-color);
+      margin-right: 0.5em;
+    }
+    
+    .project-title {
+      font-weight: 700;
+      font-size: 1.1em;
+      color: var(--primary-color);
+    }
+    
+    .project-description {
+      flex-grow: 1;
+      margin-bottom: 1em;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    .project-button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+    
+    .project-button:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 1.2em;
+      color: var(--primary-color);
+      margin-bottom: 1em;
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .kpi-summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .charts-area {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .kpi-summary {
+        grid-template-columns: 1fr;
+      }
+      .header h1 {
+        font-size: 1.5em;
+      }
+      .chart-container canvas {
+        height: 260px !important;
+      }
+
+      /* Изменения для вертикального таймлайна */
+      .timeline-wrapper {
+        height: auto; /* Автоматическая высота для вертикального расположения */
+        padding-left: 20px; /* Отступ слева для вертикальной линии */
+        margin-top: 2em; /* Увеличим отступ сверху */
+      }
+
+      .timeline-wrapper::before {
+        top: 0;
+        left: 10px; /* Положение вертикальной линии */
+        width: 2px;
+        height: 100%; /* Полная высота для вертикальной линии */
+      }
+
+      .timeline-item {
+        position: relative; /* Относительное позиционирование для стека */
+        left: 0; /* Убираем горизонтальное смещение */
+        transform: none; /* Убираем трансформацию */
+        text-align: left; /* Выравнивание текста по левому краю */
+        margin-bottom: 2em; /* Отступ между элементами */
+        padding-left: 20px; /* Отступ для контента */
+      }
+
+      .timeline-dot {
+        top: 10px; /* Положение точки относительно элемента */
+        left: 0px; /* Положение точки относительно вертикальной линии */
+        transform: translateX(-50%); /* Центрируем точку по вертикальной линии */
+      }
+
+      .timeline-content {
+        margin-top: 0; /* Убираем верхний отступ */
+      }
+
+      .timeline-content .year {
+        position: static; /* Статическое позиционирование для года */
+        transform: none; /* Убираем трансформацию */
+        margin-bottom: 0.5em; /* Отступ после года */
+        left: auto; /* Сбрасываем позиционирование */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Svitlana Kovalivska, PhD</h1>
+      <p>Data Scientist with experience in public policy analysis and project management.</p>
+      <div class="contact-links">
+        <a href="mailto:kovalivska@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+        <a href="tel:+4915146320474"><i class="fas fa-phone"></i>Phone</a>
+        <a href="https://www.linkedin.com/in/svitlana-kovalivska/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="https://github.com/Kovalivska" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+        <a href="https://public.tableau.com/app/profile/svitlanakovalivska/vizzes" target="_blank"><i class="fas fa-chart-bar"></i>Tableau</a>
+      </div>
+    </header>
+
+    <section class="kpi-summary">
+      <div class="card"><p class="kpi-value">15</p><p class="kpi-label">Analytical Projects</p></div>
+      <div class="card"><p class="kpi-value">18</p><p class="kpi-label">Years of Experience</p></div>
+      <div class="card"><p class="kpi-value">3</p><p class="kpi-label">International Orgs</p></div>
+      <div class="card"><p class="kpi-value">4</p><p class="kpi-label">Languages</p></div>
+    </section>
+
+    <section class="card" style="grid-column: span 2;">
+      <h2 style="text-align:center; font-size:1.2em; color: var(--primary-color); margin-bottom: 1em;">Career Timeline</h2>
+      <div class="timeline-wrapper">
+        <div class="timeline-item" style="left: 3%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2001</span><h3>Sales Control</h3><p>Aerosvit Airlines</p></div></div>
+        <div class="timeline-item" style="left: 18%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2004</span><h3>Charter Dept. Head</h3><p>Pan Ukraine</p></div></div>
+        <div class="timeline-item" style="left: 28%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2006</span><h3>Policy Lead</h3><p>Min. Econ</p></div></div>
+        <div class="timeline-item" style="left: 52%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2015</span><h3>Co-founder</h3><p>ISER</p></div></div>
+        <div class="timeline-item" style="left: 64%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2018</span><h3>Head of Studies</h3><p>NISS</p></div></div>
+        <div class="timeline-item" style="left: 90%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2024</span><h3>Data Trainee</h3><p>Masterschool</p></div></div>
+        <div class="timeline-item" style="left: 97%;"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2025</span><h3>Internship</h3><p>TBD</p></div></div>
+      </div>
+    </section>
+
+    <div class="charts-area">
+      <div class="card chart-container">
+        <h3 style="text-align:center; font-size:1em; color: var(--primary-color); margin-bottom: 0.5em;">Skill Radar</h3>
+        <canvas id="skillRadarChart"></canvas>
+      </div>
+      <div class="card chart-container">
+        <h3 style="text-align:center; font-size:1em; color: var(--primary-color); margin-bottom: 0.5em;">Projects per Year</h3>
+        <canvas id="projectsBarChart"></canvas>
+      </div>
+    </div>
+    
+    <section class="projects-section card">
+      <h2 class="section-title">Data Analytics Projects</h2>
+      <div class="projects-grid">
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-images project-icon"></i>
+            <h3 class="project-title">Images classification</h3>
+          </div>
+          <p class="project-description">Computer vision model classifies CIFAR-10 images using transfer learning with a pretrained ResNet50 model.</p>
+          <a href="https://github.com/Kovalivska/cifar10-resnet50.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-users project-icon"></i>
+            <h3 class="project-title">Customer Segmentation Model</h3>
+          </div>
+          <p class="project-description">Behavior-based customer segmentation using RFM analysis and K-Means clustering for travel industry insights.</p>
+          <a href="https://github.com/Kovalivska/Project-TravelTide-Customer-Segmentation-Analysis.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-tag project-icon"></i>
+            <h3 class="project-title">Price Prediction</h3>
+          </div>
+          <p class="project-description">Machine learning model that predicts automotive prices based on key features and specifications.</p>
+          <a href="https://github.com/Kovalivska/automotive_car_price_estimator.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-chart-line project-icon"></i>
+            <h3 class="project-title">Retail Demand Forecast</h3>
+          </div>
+          <p class="project-description">Time series forecasting for retail demand using statistical and machine learning approaches.</p>
+          <a href="https://github.com/Kovalivska/retail_demand_forecast.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-shopping-cart project-icon"></i>
+            <h3 class="project-title">Sales Performance Analysis</h3>
+          </div>
+          <p class="project-description">Comprehensive sales analysis with SQL queries and Tableau visualizations for Unicorn company.</p>
+          <a href="https://github.com/Kovalivska/UNICORN_Sales_Analysis.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-clock project-icon"></i>
+            <h3 class="project-title">Time Series Prediction</h3>
+          </div>
+          <p class="project-description">Interactive Streamlit application for time series forecasting with customizable models.</p>
+          <a href="https://github.com/Kovalivska/streamlit-time-series.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-filter project-icon"></i>
+            <h3 class="project-title">User Funnel Analysis</h3>
+          </div>
+          <p class="project-description">Behavior-based customer grouping using purchase patterns analysis for personalized marketing strategies in travel industry.</p>
+          <a href="https://github.com/Kovalivska/Metrocar_Funnel_Analysis.git" class="project-button" target="_blank">Details</a>
+        </div>
+        
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-exclamation-triangle project-icon"></i>
+            <h3 class="project-title">Disaster Tweet Classification</h3>
+          </div>
+          <p class="project-description">NLP model for real-time crisis detection by classifying disaster-related tweets.</p>
+          <a href="https://github.com/Kovalivska/disaster-tweet-classification.git" class="project-button" target="_blank">Details</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+    const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim();
+    const primaryColorTransparent = primaryColor + '40';
+
+    const chartDefaultOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+    };
+
+    new Chart(document.getElementById('skillRadarChart'), {
+      type: 'radar',
+      data: {
+        labels: ["Python", "SQL", "Tableau", "ML", "Policy Analysis", "Project Mgmt", "Time Series", "Computer Vision"],
+        datasets: [{
+          label: 'Proficiency',
+          data: [4, 4, 4, 4, 5, 5, 4, 4],
+          backgroundColor: primaryColorTransparent,
+          borderColor: primaryColor,
+          borderWidth: 2,
+          pointBackgroundColor: primaryColor
+        }]
+      },
+      options: {
+        ...chartDefaultOptions,
+        plugins: { legend: { display: false } },
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 5,
+            ticks: { stepSize: 1 },
+            pointLabels: { font: { size: 12 } }
+          }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('projectsBarChart'), {
+      type: 'bar',
+      data: {
+        labels: ['2018', '2019', '2024', '2025'],
+        datasets: [{
+          label: 'Projects',
+          data: [4, 2, 2, 7],
+          backgroundColor: secondaryColor,
+          borderRadius: 4,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        ...chartDefaultOptions,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

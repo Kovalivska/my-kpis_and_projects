@@ -18,7 +18,6 @@
       --border-radius: 10px;
       --line-color: #e0e0e0;
     }
-
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: var(--background-color);
@@ -26,7 +25,6 @@
       margin: 0;
       padding: 1em;
     }
-
     .container {
       max-width: 1400px;
       margin: auto;
@@ -34,23 +32,9 @@
       grid-template-columns: 1fr 1fr;
       gap: 1em;
     }
-
-    .header {
-      grid-column: span 2;
-      text-align: center;
-    }
-
-    .header h1 {
-      font-size: 2em;
-      margin: 0.3em 0 0.2em;
-      color: var(--primary-color);
-    }
-
-    .header p {
-      font-size: 1em;
-      margin: 0.2em 0 1em;
-    }
-
+    .header { grid-column: span 2; text-align: center; }
+    .header h1 { font-size: 2em; margin: 0.3em 0 0.2em; color: var(--primary-color); }
+    .header p { font-size: 1em; margin: 0.2em 0 1em; }
     .contact-links {
       display: flex;
       justify-content: center;
@@ -58,7 +42,6 @@
       gap: 1em;
       font-size: 0.95em;
     }
-
     .contact-links a {
       text-decoration: none;
       color: var(--primary-color);
@@ -67,11 +50,7 @@
       align-items: center;
       gap: 0.4em;
     }
-
-    .contact-links i {
-      font-size: 1em;
-    }
-
+    .contact-links i { font-size: 1em; }
     .card {
       background: var(--card-bg);
       padding: 1em;
@@ -80,7 +59,6 @@
       width: 100%;
       box-sizing: border-box;
     }
-
     .kpi-summary {
       grid-column: span 2;
       display: grid;
@@ -88,31 +66,18 @@
       gap: 1em;
       text-align: center;
     }
-
-    .kpi-value {
-      font-size: 2em;
-      font-weight: 700;
-      margin: 0.3em 0;
-      color: var(--primary-color);
-    }
-
-    .kpi-label {
-      font-size: 0.95em;
-      font-weight: 600;
-    }
-
+    .kpi-value { font-size: 2em; font-weight: 700; margin: 0.3em 0; color: var(--primary-color); }
+    .kpi-label { font-size: 0.95em; font-weight: 600; }
     .charts-area {
       grid-column: span 2;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1em;
     }
-
     .chart-container canvas {
       width: 100% !important;
       height: 300px !important;
     }
-
     /* Desktop timeline - unchanged */
     .timeline-wrapper {
       grid-column: span 2;
@@ -121,7 +86,6 @@
       padding: 1em;
       margin-top: 1em;
     }
-
     .timeline-wrapper::before {
       content: '';
       position: absolute;
@@ -132,13 +96,11 @@
       background-color: var(--line-color);
       z-index: 0;
     }
-
     .timeline-item {
       position: absolute;
       transform: translateX(-50%);
       text-align: center;
     }
-
     .timeline-dot {
       width: 12px;
       height: 12px;
@@ -152,12 +114,10 @@
       transform: translate(-50%, -50%);
       z-index: 1;
     }
-
     .timeline-content {
       margin-top: 80px;
       position: relative;
     }
-
     .timeline-content .year {
       position: absolute;
       top: -60px;
@@ -167,60 +127,37 @@
       font-size: 0.9em;
       color: var(--primary-color);
     }
-
-    .timeline-content h3 {
-      margin: 0.4em 0 0.2em;
-      font-size: 0.9em;
-    }
-
-    .timeline-content p {
-      margin: 0;
-      font-size: 0.8em;
-      color: #6c757d;
-    }
-
+    .timeline-content h3 { margin: 0.4em 0 0.2em; font-size: 0.9em; }
+    .timeline-content p { margin: 0; font-size: 0.8em; color: #6c757d; }
     /* PROJECTS SECTION */
-    .projects-section {
-      grid-column: span 2;
-    }
-
+    .projects-section { grid-column: span 2; }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1em;
     }
-
     .project-card {
       display: flex;
       flex-direction: column;
       height: 100%;
     }
-
     .project-header {
       display: flex;
       align-items: center;
       margin-bottom: 0.5em;
     }
-
     .project-icon {
       font-size: 1.2em;
       color: var(--primary-color);
       margin-right: 0.5em;
     }
-
-    .project-title {
-      font-weight: 700;
-      font-size: 1.1em;
-      color: var(--primary-color);
-    }
-
+    .project-title { font-weight: 700; font-size: 1.1em; color: var(--primary-color); }
     .project-description {
       flex-grow: 1;
       margin-bottom: 1em;
       font-size: 0.9em;
       line-height: 1.5;
     }
-
     .project-button {
       display: inline-block;
       background-color: var(--primary-color);
@@ -232,47 +169,23 @@
       text-align: center;
       transition: background-color 0.3s;
     }
-
-    .project-button:hover {
-      background-color: var(--secondary-color);
-    }
-
+    .project-button:hover { background-color: var(--secondary-color); }
     .section-title {
       text-align: center;
       font-size: 1.2em;
       color: var(--primary-color);
       margin-bottom: 1em;
     }
-
-    /* Responsive for tablets */
     @media (max-width: 1024px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-      .kpi-summary {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .charts-area {
-        grid-template-columns: 1fr;
-      }
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+      .container { grid-template-columns: 1fr; }
+      .kpi-summary { grid-template-columns: repeat(2, 1fr); }
+      .charts-area { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
-
-    /* Responsive for mobile devices */
     @media (max-width: 600px) {
-      .kpi-summary {
-        grid-template-columns: 1fr;
-      }
-      .header h1 {
-        font-size: 1.5em;
-      }
-      .chart-container canvas {
-        height: 280px !important;
-      }
-
-      /* Mobile timeline - vertical alignment fix */
+      .kpi-summary { grid-template-columns: 1fr; }
+      .header h1 { font-size: 1.5em; }
+      .chart-container canvas { height: 280px !important; }
       .timeline-wrapper {
         display: flex;
         flex-direction: column;
@@ -281,14 +194,12 @@
         padding-left: 20px;
         margin-top: 2em;
       }
-
       .timeline-wrapper::before {
         left: 10px;
         top: 0;
         height: 100%;
         width: 2px;
       }
-
       .timeline-item {
         position: relative;
         left: 0;
@@ -303,20 +214,17 @@
         flex-direction: column;
         justify-content: flex-start;
       }
-
       .timeline-dot {
         top: 0.5em;
         left: 0;
         transform: translateX(-50%);
         position: absolute;
       }
-
       .timeline-content {
         margin-top: 0;
         display: flex;
         flex-direction: column;
       }
-
       .timeline-content .year {
         display: block;
         position: static;
@@ -378,7 +286,6 @@
     <section class="projects-section card">
       <h2 class="section-title">Data Analytics Projects</h2>
       <div class="projects-grid">
-        <!-- project cards... same as original -->
         <div class="card project-card">
           <div class="project-header">
             <i class="fas fa-images project-icon"></i>
@@ -387,7 +294,62 @@
           <p class="project-description">Computer vision model classifies CIFAR-10 images using transfer learning with a pretrained ResNet50 model.</p>
           <a href="https://github.com/Kovalivska/cifar10-resnet50.git" class="project-button" target="_blank">Details</a>
         </div>
-        <!-- repeat for all 8 projects similarly -->
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-users project-icon"></i>
+            <h3 class="project-title">Customer Segmentation Model</h3>
+          </div>
+          <p class="project-description">Behavior-based customer segmentation using RFM analysis and K-Means clustering for travel industry insights.</p>
+          <a href="https://github.com/Kovalivska/Project-TravelTide-Customer-Segmentation-Analysis.git" class="project-button" target="_blank">Details</a>
+        </div>
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-tag project-icon"></i>
+            <h3 class="project-title">Price Prediction</h3>
+          </div>
+          <p class="project-description">Machine learning model that predicts automotive prices based on key features and specifications.</p>
+          <a href="https://github.com/Kovalivska/automotive_car_price_estimator.git" class="project-button" target="_blank">Details</a>
+        </div>
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-chart-line project-icon"></i>
+            <h3 class="project-title">Retail Demand Forecast</h3>
+          </div>
+          <p class="project-description">Time series forecasting for retail demand using statistical and machine learning approaches.</p>
+          <a href="https://github.com/Kovalivska/retail_demand_forecast.git" class="project-button" target="_blank">Details</a>
+        </div>
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-shopping-cart project-icon"></i>
+            <h3 class="project-title">Sales Performance Analysis</h3>
+          </div>
+          <p class="project-description">Comprehensive sales analysis with SQL queries and Tableau visualizations for Unicorn company.</p>
+          <a href="https://github.com/Kovalivska/UNICORN_Sales_Analysis.git" class="project-button" target="_blank">Details</a>
+        </div>
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-clock project-icon"></i>
+            <h3 class="project-title">Time Series Prediction</h3>
+          </div>
+          <p class="project-description">Interactive Streamlit application for time series forecasting with customizable models.</p>
+          <a href="https://github.com/Kovalivska/streamlit-time-series.git" class="project-button" target="_blank">Details</a>
+        </div>
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-filter project-icon"></i>
+            <h3 class="project-title">User Funnel Analysis</h3>
+          </div>
+          <p class="project-description">Behavior-based customer grouping using purchase patterns analysis for personalized marketing strategies in travel industry.</p>
+          <a href="https://github.com/Kovalivska/Metrocar_Funnel_Analysis.git" class="project-button" target="_blank">Details</a>
+        </div>
+        <div class="card project-card">
+          <div class="project-header">
+            <i class="fas fa-exclamation-triangle project-icon"></i>
+            <h3 class="project-title">Disaster Tweet Classification</h3>
+          </div>
+          <p class="project-description">NLP model for real-time crisis detection by classifying disaster-related tweets.</p>
+          <a href="https://github.com/Kovalivska/disaster-tweet-classification.git" class="project-button" target="_blank">Details</a>
+        </div>
       </div>
     </section>
   </div>
@@ -396,11 +358,7 @@
     const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
     const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim();
     const primaryColorTransparent = primaryColor + '40';
-
-    const chartDefaultOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-    };
+    const chartDefaultOptions = { responsive: true, maintainAspectRatio: false };
 
     new Chart(document.getElementById('skillRadarChart'), {
       type: 'radar',
@@ -408,7 +366,7 @@
         labels: ["Python", "SQL", "Tableau", "ML", "Policy Analysis", "Project Mgmt", "Time Series", "Computer Vision"],
         datasets: [{
           label: 'Proficiency',
-          data: [4, 4, 4, 4, 5, 5, 4, 4],
+          data: [4,4,4,4,5,5,4,4],
           backgroundColor: primaryColorTransparent,
           borderColor: primaryColor,
           borderWidth: 2,
@@ -418,24 +376,17 @@
       options: {
         ...chartDefaultOptions,
         plugins: { legend: { display: false } },
-        scales: {
-          r: {
-            suggestedMin: 0,
-            suggestedMax: 5,
-            ticks: { stepSize: 1 },
-            pointLabels: { font: { size: 12 } }
-          }
-        }
+        scales: { r: { suggestedMin:0, suggestedMax:5, ticks:{stepSize:1}, pointLabels:{font:{size:12}} } }
       }
     });
 
     new Chart(document.getElementById('projectsBarChart'), {
       type: 'bar',
       data: {
-        labels: ['2018', '2019', '2024', '2025'],
+        labels: ['2018','2019','2024','2025'],
         datasets: [{
           label: 'Projects',
-          data: [4, 2, 2, 7],
+          data: [4,2,2,7],
           backgroundColor: secondaryColor,
           borderRadius: 4,
           borderWidth: 0
@@ -444,12 +395,7 @@
       options: {
         ...chartDefaultOptions,
         plugins: { legend: { display: false } },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { stepSize: 1 }
-          }
-        }
+        scales: { y: { beginAtZero:true, ticks:{stepSize:1} } }
       }
     });
   </script>

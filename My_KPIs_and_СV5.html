@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Svitlana Kovalivska - Data Scientist</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--primary-color:#008080;--secondary-color:#ff7f50;--background-color:#f8f9fa;--font-color:#2c3e50;--card-bg:#fff;--shadow:0 4px 10px rgba(44,62,80,.1);--border-radius:10px;--line-color:#e0e0e0}body{font-family:Montserrat,sans-serif;background-color:var(--background-color);color:var(--font-color);margin:0;padding:0}.nav-bar{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);padding:1rem 2rem;z-index:1000;border-bottom:3px solid var(--primary-color);box-shadow:0 2px 10px rgba(0,0,0,.1)}.nav-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}.nav-logo{font-size:1.3rem;font-weight:700;color:var(--primary-color);display:flex;align-items:center;gap:1rem}.aws-badge{width:50px;height:50px}.nav-tabs{display:flex;gap:2rem;flex-wrap:wrap}.nav-tab{padding:.5rem 1rem;cursor:pointer;transition:all .3s;border-bottom:3px solid transparent;font-weight:600;color:var(--font-color)}.nav-tab.active,.nav-tab:hover{color:var(--primary-color);border-bottom-color:var(--primary-color)}.container{max-width:1400px;margin:0 auto;padding:1em}.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:1em;font-size:.95em;margin-bottom:2rem}.contact-links a{text-decoration:none;color:var(--primary-color);font-weight:600;display:flex;align-items:center;gap:.4em;padding:.5rem 1rem;border:2px solid var(--primary-color);border-radius:25px;transition:all .3s}.contact-links a:hover{background:var(--primary-color);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow)}.section{display:none}.section.active{display:block;animation:fadeIn .5s}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.card{background:var(--card-bg);padding:1.5em;border-radius:var(--border-radius);box-shadow:var(--shadow);margin-bottom:1.5em}.kpi-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1em;text-align:center;margin-bottom:2em}.kpi-value{font-size:2.5em;font-weight:700;margin:.3em 0;color:var(--primary-color)}.kpi-label{font-size:.95em;font-weight:600;color:var(--font-color)}.timeline-wrapper{position:relative;height:115px;padding:1em;margin:2em 0}.timeline-wrapper::before{content:'';position:absolute;top:80px;left:0;height:2px;width:100%;background-color:var(--line-color);z-index:0}.timeline-item{position:absolute;transform:translateX(-50%);text-align:center}.timeline-dot{width:12px;height:12px;background-color:var(--primary-color);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--primary-color);position:absolute;top:68px;left:50%;transform:translate(-50%,-50%);z-index:1}.timeline-content{margin-top:80px;position:relative}.timeline-content .year{position:absolute;top:-60px;left:50%;transform:translateX(-50%);font-weight:700;font-size:.9em;color:var(--primary-color)}.timeline-content h3{margin:.4em 0 .2em;font-size:.9em;color:var(--font-color)}.timeline-content p{margin:0;font-size:.8em;color:#6c757d}.charts-area{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1em;margin:2em 0}.chart-container{background:var(--card-bg);padding:1.5em;border-radius:var(--border-radius);box-shadow:var(--shadow)}.chart-container h3{text-align:center;font-size:1.1em;color:var(--primary-color);margin-bottom:1em}.chart-container canvas{width:100%!important;height:300px!important}.info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5em;margin:2em 0}.info-card{background:var(--card-bg);padding:1.5em;border-radius:var(--border-radius);box-shadow:var(--shadow);border-top:4px solid var(--primary-color)}.info-card h3{color:var(--primary-color);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}.section-title{text-align:center;font-size:1.8em;color:var(--primary-color);margin-bottom:1.5em;font-weight:700}.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5em;margin-top:1.5em}.project-card{background:var(--card-bg);padding:1.5em;border-radius:var(--border-radius);box-shadow:var(--shadow);display:flex;flex-direction:column;transition:all .3s;height:100%}.project-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,128,128,.2)}.project-header{display:flex;align-items:center;margin-bottom:.8em}.project-icon{font-size:1.3em;color:var(--secondary-color);margin-right:.5em;min-width:30px}.project-title{font-weight:700;font-size:1.1em;color:var(--primary-color)}.project-description{flex-grow:1;margin-bottom:1em;font-size:.9em;line-height:1.6;color:var(--font-color)}.project-button{display:inline-block;background-color:var(--primary-color);color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:600;text-align:center;transition:all .3s}.project-button:hover{background-color:var(--secondary-color);transform:scale(1.02)}.skills-matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5em;margin-top:1.5em}.skill-category{background:var(--card-bg);padding:1.5em;border-radius:var(--border-radius);box-shadow:var(--shadow);border-left:4px solid var(--primary-color)}.skill-category h3{color:var(--primary-color);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}.skill-item{display:flex;justify-content:space-between;align-items:center;margin:.8rem 0}.skill-bar{flex:1;height:8px;background:rgba(0,128,128,.15);border-radius:10px;margin:0 1rem;overflow:hidden}.skill-progress{height:100%;background:linear-gradient(90deg,var(--primary-color),var(--secondary-color));border-radius:10px;transition:width 1s ease}.cv-section{background:var(--card-bg);padding:2rem;border-radius:var(--border-radius);box-shadow:var(--shadow);margin-bottom:2rem}.cv-section h2{color:var(--primary-color);border-bottom:3px solid var(--primary-color);padding-bottom:.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}.cv-entry{margin-bottom:2rem;padding-left:1.5rem;border-left:3px solid var(--line-color)}.cv-entry:hover{border-left-color:var(--primary-color)}.cv-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:.5rem;flex-wrap:wrap;gap:.5rem}.cv-title{font-weight:700;color:var(--primary-color);font-size:1.1rem}.cv-date{color:var(--secondary-color);font-weight:600;white-space:nowrap}.cv-company{color:#6c757d;margin-bottom:.5rem}.cv-description{line-height:1.7;color:var(--font-color)}@media (max-width:1024px){.kpi-summary{grid-template-columns:repeat(2,1fr)}.charts-area{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}}@media (max-width:768px){.nav-tabs{gap:.5rem}.nav-tab{font-size:.85rem;padding:.4rem .8rem}.timeline-wrapper{height:auto!important;display:flex;flex-direction:column;align-items:flex-start;padding-left:20px}.timeline-wrapper::before{top:0;left:10px;width:2px;height:100%}.timeline-item{position:relative!important;left:auto!important;transform:none!important;text-align:left!important;margin-bottom:2em;padding-left:25px;width:100%}.timeline-dot{position:absolute;top:.5em;left:0!important;transform:translateX(0)!important}.timeline-content{margin-top:0}.timeline-content .year{position:static!important;transform:none!important;margin-bottom:.3em;display:block}}
+</style>
+</head>
+<body>
+<nav class="nav-bar">
+<div class="nav-content">
+<div class="nav-logo">SK • Data Scientist <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Certified Cloud Practitioner" class="aws-badge"/></div>
+<div class="nav-tabs">
+<div class="nav-tab active" onclick="showSection('overview')">Übersicht</div>
+<div class="nav-tab" onclick="showSection('journey')">Werdegang</div>
+<div class="nav-tab" onclick="showSection('projects')">Projekte</div>
+<div class="nav-tab" onclick="showSection('skills')">Kompetenzen</div>
+<div class="nav-tab" onclick="showSection('cv')">Lebenslauf</div>
+</div>
+</div>
+</nav>
+<div class="container">
+<section id="overview" class="section active">
+<header style="text-align:center;padding:.3rem 1rem .2rem">
+<h1 style="font-size:1.6em;margin:0 0 .05em">Svitlana Kovalivska, Ph.D.</h1>
+<p style="font-size:.85em;margin:0 0 .4em">Data Scientist mit Erfahrung in Public Policy Analyse und Projektmanagement</p>
+<div class="contact-links" style="gap:.6em;margin-bottom:.4rem;font-size:.75em">
+<a href="mailto:kovalivska@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+<a href="tel:+4915146320474"><i class="fas fa-phone"></i>Telefon</a>
+<a href="https://www.linkedin.com/in/svitlana-kovalivska/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+<a href="https://github.com/Kovalivska" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+<a href="https://public.tableau.com/app/profile/svitlanakovalivska/vizzes" target="_blank"><i class="fas fa-chart-bar"></i>Tableau</a>
+</div>
+</header>
+<div class="kpi-summary" style="margin-bottom:1em;gap:.8em">
+<div class="card" style="padding:.8em"><p class="kpi-value" style="font-size:2em;margin:.2em 0">17+</p><p class="kpi-label" style="font-size:.85em">Analytische Projekte</p></div>
+<div class="card" style="padding:.8em"><p class="kpi-value" style="font-size:2em;margin:.2em 0">18</p><p class="kpi-label" style="font-size:.85em">Jahre Erfahrung</p></div>
+<div class="card" style="padding:.8em"><p class="kpi-value" style="font-size:2em;margin:.2em 0">3</p><p class="kpi-label" style="font-size:.85em">Internationale Org.</p></div>
+<div class="card" style="padding:.8em"><p class="kpi-value" style="font-size:2em;margin:.2em 0">4</p><p class="kpi-label" style="font-size:.85em">Sprachen</p></div>
+</div>
+<div class="card" style="margin-bottom:1em">
+<h2 style="text-align:center;font-size:1.2em;color:var(--primary-color);margin-bottom:.8em">Karriere-Timeline</h2>
+<div class="timeline-wrapper" style="height:100px">
+<div class="timeline-item" style="left:3%"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2001</span><h3>Sales Control</h3><p>Aerosvit Airlines</p></div></div>
+<div class="timeline-item" style="left:16%"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2004</span><h3>Charterflugabteilungsleiterin</h3><p>Pan Ukraine</p></div></div>
+<div class="timeline-item" style="left:32%"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2006</span><h3>Investitionspolitikleiterin</h3><p>Wirtschaftsministerium</p></div></div>
+<div class="timeline-item" style="left:54%"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2015</span><h3>Mitbegründerin</h3><p>ISER (NGO Think Tank)</p></div></div>
+<div class="timeline-item" style="left:70%"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2018</span><h3>Regionalstudien­leiterin</h3><p>NISS (staatlich Think Tank)</p></div></div>
+<div class="timeline-item" style="left:85%"><div class="timeline-dot"></div><div class="timeline-content"><span class="year">2025</span><h3>Data Science Praktikantin</h3><p>Data Coffee, Webeet</p></div></div>
+</div>
+</div>
+<div class="charts-area" style="margin:0">
+<div class="chart-container" style="padding:1em"><h3 style="font-size:1em;margin-bottom:.5em">Technische Kompetenzen</h3><canvas id="skillRadarChart" style="height:200px!important"></canvas></div>
+<div class="chart-container" style="padding:1em"><h3 style="font-size:1em;margin-bottom:.5em">Projekte pro Jahr</h3><canvas id="projectsBarChart" style="height:200px!important"></canvas></div>
+<div class="chart-container" style="padding:1em"><h3 style="font-size:1em;margin-bottom:.5em">Soft Skills</h3><canvas id="softSkillsChart" style="height:200px!important"></canvas></div>
+</div>
+<div class="info-cards" style="margin:1.5em 0 0 0">
+<div class="info-card" style="padding:1em"><h3 style="font-size:1em;margin-bottom:.5rem"><i class="fas fa-brain"></i> Letzte Position</h3><p style="font-size:.9em"><strong>Data Science and Data Analytics Praktikum</strong> bei Data Coffee GmbH </p></div>
+<div class="info-card" style="padding:1em"><h3 style="font-size:1em;margin-bottom:.5rem"><i class="fas fa-graduation-cap"></i> Ausbildung</h3><p style="font-size:.9em"><strong>Data Scientist Spezialisierung</strong></p><p style="font-size:.9em"><strong>Ph.D. in Öffentliches Management und Verwaltung</strong></p><p style="font-size:.9em"><strong>Master's degree in Public Administration</strong></p><p style="font-size:.9em"><strong>Master- und Bachelor-Abschluss in Radioengineering</strong></p><p style="font-size:.9em"><strong></p></div>
+<div class="info-card" style="padding:1em"><h3 style="font-size:1em;margin-bottom:.5rem"><i class="fas fa-rocket"></i> Einzigartiger Mehrwert</h3><p style="font-size:.9em">Seltene Kombination aus ML-Engineering, Production-Ready Data Pipelines, LLM-Integration und 15+ Jahren Erfahrung in datenbasierter Politikanalyse und Nachhaltigkeitsprojekten</p></div>
+</div>
+</section>
+
+
+<section id="journey" class="section">
+  <h2 class="section-title">Meine Reise: Von Engineering zu Data Science</h2>
+  
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem;">
+    
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #008080, #00a0a0); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,128,128,0.3);">
+        <i class="fas fa-microchip" style="font-size: 2rem; color: white;"></i>
+      </div>
+      <h3 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 0.5rem;">1996-2001</h3>
+      <h4 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700;">Radioengineering</h4>
+      <p style="font-size: 0.9rem; color: #6c757d;">Nationale Luftfahrtuniversität Kiew</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.5;">791h Mathematik, technisches Zeichnen, Informatik. Abschluss mit Auszeichnung.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #008080, #00a0a0); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,128,128,0.3);">
+        <i class="fas fa-plane" style="font-size: 2rem; color: white;"></i>
+      </div>
+      <h3 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 0.5rem;">2001-2006</h3>
+      <h4 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700;">Aviation Industry</h4>
+      <p style="font-size: 0.9rem; color: #6c757d;">Aerosvit Airlines → Pan Ukraine</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.5;">Sales Control Engineer → Leiter Charterflugabteilung. Erste Datenanalyse-Erfahrungen.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #008080, #00a0a0); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,128,128,0.3);">
+        <i class="fas fa-landmark" style="font-size: 2rem; color: white;"></i>
+      </div>
+      <h3 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 0.5rem;">2006-2022</h3>
+      <h4 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700;">Public Policy & Ph.D.</h4>
+      <p style="font-size: 0.9rem; color: #6c757d;">Ministerium → NISS → ISER</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.5;">Policy Lead, Forschungsleitung. SDGs, datenbasierte Politikanalyse, Reformprojekte.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ff7f50, #ff9f70); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255,127,80,0.3);">
+        <i class="fas fa-laptop-code" style="font-size: 2rem; color: white;"></i>
+      </div>
+      <h3 style="color: var(--secondary-color); font-size: 1.2rem; margin-bottom: 0.5rem;">2024-2025</h3>
+      <h4 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700;">Data Science</h4>
+      <p style="font-size: 0.9rem; color: #6c757d;">Masterschool → Praktikum</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.5;">Data Scientist Spezialisierung. Praktikum bei der Data Coffee GmbH und Webeet.</p>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top: 3rem; background: linear-gradient(135deg, rgba(0,128,128,0.05), rgba(255,127,80,0.05)); border-left: 4px solid var(--primary-color);">
+    <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3rem; text-align: center;">
+      <i class="fas fa-project-diagram"></i> Schlüsselprojekte während Public Policy Phase
+    </h3>
+    
+    <div style="position: relative; height: 160px; margin: 2rem 0 2rem 0; padding: 0 2rem;">
+      <!-- Timeline line -->
+      <div style="position: absolute; top: 20px; left: 5%; right: 5%; height: 3px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));"></div>
+      
+      <!-- Project 1: 2015 -->
+      <div style="position: absolute; left: 15%; transform: translateX(-50%);">
+        <div style="width: 16px; height: 16px; background: var(--secondary-color); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--secondary-color); position: relative; top: 12px;"></div>
+        <div style="margin-top: 30px; text-align: center; max-width: 160px; transform: translateX(-30%);">
+          <strong style="color: var(--secondary-color); font-size: 0.9rem; display: block; margin-bottom: 0.4rem; font-weight: 700;">2015</strong>
+          <h4 style="font-size: 0.9rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: 700; line-height: 1.3;">Wirtschaftlicher Pragmatismus</h4>
+          <p style="font-size: 0.8rem; color: #6c757d; line-height: 1.4;">Wirtschaftskrisen-Analyse (ISER)</p>
+        </div>
+      </div>
+      
+      <!-- Project 2: 2015-2016 -->
+      <div style="position: absolute; left: 34%; transform: translateX(-50%);">
+        <div style="width: 16px; height: 16px; background: var(--secondary-color); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--secondary-color); position: relative; top: 12px;"></div>
+        <div style="margin-top: 30px; text-align: center; max-width: 160px; transform: translateX(-30%);">
+          <strong style="color: var(--secondary-color); font-size: 0.9rem; display: block; margin-bottom: 0.4rem; font-weight: 700;">2015-2016</strong>
+          <h4 style="font-size: 0.9rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: 700; line-height: 1.3;">Haushaltspolitik</h4>
+          <p style="font-size: 0.8rem; color: #6c757d; line-height: 1.4;">10-jährige Staatshaushalt-Analyse (ISER)</p>
+        </div>
+      </div>
+      
+      <!-- Project 3: 2017-2019 -->
+      <div style="position: absolute; left: 63%; transform: translateX(-50%);">
+        <div style="width: 16px; height: 16px; background: var(--secondary-color); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--secondary-color); position: relative; top: 12px;"></div>
+        <div style="margin-top: 30px; text-align: center; max-width: 160px; transform: translateX(-30%);">
+          <strong style="color: var(--secondary-color); font-size: 0.9rem; display: block; margin-bottom: 0.4rem; font-weight: 700;">2017-2019</strong>
+          <h4 style="font-size: 0.9rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: 700; line-height: 1.3;">SDG-Implementierung</h4>
+          <p style="font-size: 0.8rem; color: #6c757d; line-height: 1.4;">196 Indikatoren, 24 Regionen (UNDP)</p>
+        </div>
+      </div>
+      
+      <!-- Project 4: 2018-2019 -->
+      <div style="position: absolute; left: 90%; transform: translateX(-50%);">
+        <div style="width: 16px; height: 16px; background: var(--secondary-color); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--secondary-color); position: relative; top: 12px;"></div>
+        <div style="margin-top: 30px; text-align: center; max-width: 160px; transform: translateX(-70%);">
+          <strong style="color: var(--secondary-color); font-size: 0.9rem; display: block; margin-bottom: 0.4rem; font-weight: 700;">2018-2019</strong>
+          <h4 style="font-size: 0.9rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: 700; line-height: 1.3;">Investitionsbewertung</h4>
+          <p style="font-size: 0.8rem; color: #6c757d; line-height: 1.4;">Clusteranalyse 100+ Gemeinden (GIZ)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</section>
+<section id="projects" class="section">
+  <h2 class="section-title">Data Analytics Projekte</h2>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-microchip project-icon"></i>
+        <h3 class="project-title">Sensor Time Series Variable Classification</h3>
+      </div>
+      <p class="project-description">Automatisierte ML-Lösung zur Klassifikation von Maschinenvariablen. Reduziert manuelle Sichtung von 500+ Parametern von Tagen auf Minuten durch intelligente Vorfilterung und Erkennung relevanter Sensordaten für Industrie 4.0.</p>
+      <a href="https://github.com/Kovalivska/sensor-time-series-variable-classification-app.git" class="project-button" target="_blank">Details</a>
+    </div>
+   
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-leaf project-icon"></i>
+        <h3 class="project-title">Agricultural Production KPI Analytics</h3>
+      </div>
+      <p class="project-description">Umfassendes KPI-Analytik-System für Gemüseverarbeitung mit 40+ Performance-Indikatoren. Implementiert Signalverarbeitung, Zeitreihenanalyse und datengestützte Entscheidungsfindung für Produktionsoptimierung. Entwickelt bei Data Coffee GmbH.</p>
+      <a href="https://github.com/Kovalivska/agricultural-production-kpi-analytics.git" class="project-button" target="_blank">Details</a>
+    </div>
+  </div>
+  
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-chart-line project-icon"></i>
+        <h3 class="project-title">CNC Signal Processing & Time Series Analysis</h3>
+      </div>
+      <p class="project-description">Experimenteller Prototyp für KI-gestützte CNC-Datenanalyse mit LLM-Integration. Entwicklung innovativer nicht-algorithmischer Ansätze zur Interpretation komplexer Fertigungsdaten und Zeitreihenanalyse.</p>
+      <a href="https://github.com/Kovalivska/CNC-Signal-TimeSeries-LLM.git" class="project-button" target="_blank">Details</a>
+    </div>
+   
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-robot project-icon"></i>
+        <h3 class="project-title">Claude Agent System</h3>
+      </div>
+      <p class="project-description">Umfassendes System spezialisierter Claude-Agenten für Data Science und Forschungsprojekte: Project Orchestrator für MLOps, Research Assistant für akademische Literatur, Data Scientist für ML-Modeling und Production Code Generator.</p>
+      <a href="https://github.com/Kovalivska/claude-agent-system.git" class="project-button" target="_blank">Details</a>
+    </div>
+  </div>
+      
+   
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-database project-icon"></i>
+        <h3 class="project-title">Production Data Pipeline</h3>
+      </div>
+      <p class="project-description">Enterprise-grade Python Toolkit für automatisierte ETL-Pipelines mit SmartAutoDataLoader, DataProcessor für DataCleaning und Multi-Cloud Database Integration mit robustem Error Handling.</p>
+      <a href="https://github.com/Kovalivska/production-data-pipeline.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-home project-icon"></i>
+        <h3 class="project-title">Berlin Recommender System</h3>
+      </div>
+      <p class="project-description">Empfehlungssystem für Immobilien in Berlin mit Multi-Criteria Decision Making (MCDM). Nutzt TOPSIS-Methode für transparente Bewertung der Bezirke basierend auf Nutzerpräferenzen.</p>
+      <a href="https://github.com/Kovalivska/Berlin-Recommender-System.git" class="project-button" target="_blank">Details</a>
+    </div>
+  </div>
+   
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <i class="far fa-image project-icon"></i>
+        <h3 class="project-title">Images classification</h3>
+      </div>
+      <p class="project-description">Computer Vision Modell klassifiziert CIFAR-10 Bilder mit Transfer Learning unter Verwendung eines vortrainierten ResNet50 Modells.</p>
+      <a href="https://github.com/Kovalivska/cifar10-resnet50.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="far fa-user project-icon"></i>
+        <h3 class="project-title">Customer Segmentation Model</h3>
+      </div>
+      <p class="project-description">Verhaltensbasierte Kundensegmentierung mit RFM-Analyse und K-Means Clustering für Einblicke in der Reisebranche.</p>
+      <a href="https://github.com/Kovalivska/Project-TravelTide-Customer-Segmentation-Analysis.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-tag project-icon"></i>
+        <h3 class="project-title">Price Prediction</h3>
+      </div>
+      <p class="project-description">Machine Learning Modell, das Automobilpreise basierend auf Hauptmerkmalen und Spezifikationen vorhersagt.</p>
+      <a href="https://github.com/Kovalivska/automotive_car_price_estimator.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-chart-line project-icon"></i>
+        <h3 class="project-title">Retail Demand Forecast</h3>
+      </div>
+      <p class="project-description">Zeitreihenvorhersage für Einzelhandelsbedarf unter Verwendung statistischer und Machine Learning Ansätze.</p>
+      <a href="https://github.com/Kovalivska/retail_demand_forecast.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-shopping-cart project-icon"></i>
+        <h3 class="project-title">Sales Performance Analysis</h3>
+      </div>
+      <p class="project-description">Umfassende Verkaufsanalyse mit SQL-Abfragen und Tableau-Visualisierungen für das Unicorn-Unternehmen.</p>
+      <a href="https://github.com/Kovalivska/UNICORN_Sales_Analysis.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="far fa-clock project-icon"></i>
+        <h3 class="project-title">Time Series Prediction</h3>
+      </div>
+      <p class="project-description">Interaktive Streamlit-Anwendung für Zeitreihenvorhersagen mit anpassbaren Modellen.</p>
+      <a href="https://github.com/Kovalivska/streamlit-time-series.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-filter project-icon"></i>
+        <h3 class="project-title">User Funnel Analysis</h3>
+      </div>
+      <p class="project-description">Verhaltensbasierte Kundengruppierung mittels Kaufmusteranalyse für personalisierte Marketingstrategien in der Reisebranche.</p>
+      <a href="https://github.com/Kovalivska/Metrocar_Funnel_Analysis.git" class="project-button" target="_blank">Details</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <i class="fas fa-exclamation-triangle project-icon"></i>
+        <h3 class="project-title">Disaster Tweet Classification</h3>
+      </div>
+      <p class="project-description">NLP-Modell für Echtzeit-Krisenerkennung durch Klassifikation katastrophenbezogener Tweets.</p>
+      <a href="https://github.com/Kovalivska/disaster-tweet-classification.git" class="project-button" target="_blank">Details</a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 2.5rem;">
+    <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3em; text-align: center;">
+      <i class="fas fa-briefcase"></i> Analytische, Studien- und wissenschaftliche Projekte
+    </h3>
+
+	<div class="projects-grid">
+	  <div style="padding: 1.2rem; background: var(--background-color); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+	    <h4 style="color: var(--secondary-color); margin-bottom: 0.8rem; font-size: 1.1em;">
+	      <i class="fas fa-chart-area"></i> Investitionsbewertung auf Gemeindeebene (GIZ)
+	    </h4>
+	    <p style="line-height: 1.6; color: var(--font-color);">Clusteranalyse von über 100 Gemeinden zur Priorisierung nachhaltiger Maßnahmen (2018-2019, GIZ).</p>
+	  </div>
+  
+	  <div style="padding: 1.2rem; background: var(--background-color); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+	    <h4 style="color: var(--secondary-color); margin-bottom: 0.8rem; font-size: 1.1em;">
+	      <i class="fas fa-globe"></i> Unterstützung der SDG-Umsetzung in der Ukraine
+	    </h4>
+	    <p style="line-height: 1.6; color: var(--font-color); margin-bottom: 0.8rem;">Analyse von 196 Indikatoren in 24 Regionen mit Excel (2017-2019, UNDP).</p>
+	    <a href="https://www.undp.org/ukraine/publications/implementing-2030-sustainable-development-goals-ukraine-analysis-government-strategies-and-public-policy" 
+	       style="display: inline-block; color: var(--primary-color); text-decoration: none; font-weight: 600; font-size: 0.9em;" 
+	       target="_blank"
+	       onmouseover="this.style.color='var(--secondary-color)'" 
+	       onmouseout="this.style.color='var(--primary-color)'">
+	      <i class="fas fa-external-link-alt"></i> Publikation ansehen
+	    </a>
+	  </div>
+  
+	  <div style="padding: 1.2rem; background: var(--background-color); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+	    <h4 style="color: var(--secondary-color); margin-bottom: 0.8rem; font-size: 1.1em;">
+	      <i class="fas fa-balance-scale"></i> Haushaltspolitik und Reformvorschläge
+	    </h4>
+	    <p style="line-height: 1.6; color: var(--font-color); margin-bottom: 0.8rem;">10-jährige Analyse des Staatshaushalts, Identifizierung von Ineffizienzen und Vorschlag von Reformen (2015-2016, ISER).</p>
+	    <a href="https://www.researchgate.net/publication/340385986_BUDZETNA_POLITIKA_PRAGMATICNI_PIDHODI_DO_STRATEGICNIH_RISEN_Seria_EKONOMICNIJ_PRAGMATIZM" 
+	       style="display: inline-block; color: var(--primary-color); text-decoration: none; font-weight: 600; font-size: 0.9em;" 
+	       target="_blank"
+	       onmouseover="this.style.color='var(--secondary-color)'" 
+	       onmouseout="this.style.color='var(--primary-color)'">
+	      <i class="fas fa-external-link-alt"></i> Publikation ansehen
+	    </a>
+	  </div>
+  
+	  <div style="padding: 1.2rem; background: var(--background-color); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+	    <h4 style="color: var(--secondary-color); margin-bottom: 0.8rem; font-size: 1.1em;">
+	      <i class="fas fa-chart-pie"></i> Wirtschaftlicher Pragmatismus
+	    </h4>
+	    <p style="line-height: 1.6; color: var(--font-color); margin-bottom: 0.8rem;">Untersuchung der Ursachen von Wirtschaftskrisen, Modellierung politischer Maßnahmen und Bereitstellung (2015, ISER).</p>
+	    <a href="https://www.researchgate.net/publication/340385996_Politika_ekonomicnogo_pragmatizmu" 
+	       style="display: inline-block; color: var(--primary-color); text-decoration: none; font-weight: 600; font-size: 0.9em;" 
+	       target="_blank"
+	       onmouseover="this.style.color='var(--secondary-color)'" 
+	       onmouseout="this.style.color='var(--primary-color)'">
+	      <i class="fas fa-external-link-alt"></i> Publikation ansehen
+	    </a>
+	  </div>
+	</div>
+  
+</section>
+
+</section>
+<section id="skills" class="section">
+  <h2 class="section-title">Technische Skills & Expertise</h2>
+  
+  <div class="skills-matrix">
+    <div class="skill-category">
+      <h3><i class="fas fa-code"></i> Sprachen & Tools</h3>
+      <div class="skill-item">
+        <span>Python</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        <span style="min-width: 35px; text-align: right;">90%</span>
+      </div>
+      <div class="skill-item">
+        <span>SQL</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        <span style="min-width: 35px; text-align: right;">85%</span>
+      </div>
+      <div class="skill-item">
+        <span>Tableau</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        <span style="min-width: 35px; text-align: right;">90%</span>
+      </div>
+      <div class="skill-item">
+        <span>Docker</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+        <span style="min-width: 35px; text-align: right;">75%</span>
+      </div>
+      <div class="skill-item">
+        <span>AWS</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+        <span style="min-width: 35px; text-align: right;">70%</span>
+      </div>
+      <div class="skill-item">
+        <span>Git</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+        <span style="min-width: 35px; text-align: right;">80%</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3><i class="fas fa-chart-bar"></i> Datenanalyse & Statistik</h3>
+      <div class="skill-item">
+        <span>EDA</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        <span style="min-width: 35px; text-align: right;">90%</span>
+      </div>
+      <div class="skill-item">
+        <span>Statistik</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        <span style="min-width: 35px; text-align: right;">85%</span>
+      </div>
+      <div class="skill-item">
+        <span>Feature Eng.</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        <span style="min-width: 35px; text-align: right;">85%</span>
+      </div>
+      <div class="skill-item">
+        <span>Zeitreihen</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        <span style="min-width: 35px; text-align: right;">85%</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3><i class="fas fa-robot"></i> Maschinelles Lernen</h3>
+      <div class="skill-item">
+        <span>Scikit-learn</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        <span style="min-width: 35px; text-align: right;">90%</span>
+      </div>
+      <div class="skill-item">
+        <span>TensorFlow</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+        <span style="min-width: 35px; text-align: right;">80%</span>
+      </div>
+      <div class="skill-item">
+        <span>NLP</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+        <span style="min-width: 35px; text-align: right;">75%</span>
+      </div>
+      <div class="skill-item">
+        <span>LLMs</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+        <span style="min-width: 35px; text-align: right;">70%</span>
+      </div>
+      <div class="skill-item">
+        <span>Hugging Face</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+        <span style="min-width: 35px; text-align: right;">70%</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3><i class="fas fa-brain"></i> Forschungsbezug & Kontext</h3>
+      <div class="skill-item">
+        <span>Policy-Analyse</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+        <span style="min-width: 35px; text-align: right;">95%</span>
+      </div>
+      <div class="skill-item">
+        <span>Projektmanag.</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        <span style="min-width: 35px; text-align: right;">90%</span>
+      </div>
+      <div class="skill-item">
+        <span>Teamarbeit</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+        <span style="min-width: 35px; text-align: right;">95%</span>
+      </div>
+      <div class="skill-item">
+        <span>Kommunikation</span>
+        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        <span style="min-width: 35px; text-align: right;">90%</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem; font-size: 1.5rem;">
+      Zertifikate
+    </h3>
+    <div class="info-cards">
+		
+    <div class="info-card">
+      <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+        <i class="fas fa-graduation-cap"></i> Data Analytics Program mit Spezialisierung auf Data Science
+      </h4>
+      <p style="margin-top: 0.5rem;">Masterschool</p>
+      <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">October 2025</p>
+    </div>
+	  <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-cloud"></i> AWS Certified Cloud Practitioner
+        </h4>
+        <p style="margin-top: 0.5rem;">AWS, Validation: 323df01ea1164814baf665b3ec26892a</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">August 2025</p>
+      </div>
+      <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-graduation-cap"></i> Hands-On Generative AI with Multi-Agent LangChain: Building Real-World Applications.
+        </h4>
+        <p style="margin-top: 0.5rem;">LinkedIn Learning</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">August 2025</p>
+      </div>
+      <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-graduation-cap"></i> Advanced Learning Algorithms
+        </h4>
+        <p style="margin-top: 0.5rem;">DeepLearning.AI by Stanford University, Coursera</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">April 2025</p>
+      </div>
+      <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-graduation-cap"></i> Supervised Machine Learning
+        </h4>
+        <p style="margin-top: 0.5rem;">DeepLearning.AI by Stanford University, Coursera</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">Februar 2025</p>
+      </div>
+      <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-chart-line"></i> The Power of Statistics
+        </h4>
+        <p style="margin-top: 0.5rem;">authorized by Google and offered through Coursera</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">Dezember 2024</p>
+      </div>
+      <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-database"></i> Foundations: Data, Data, Everywhere
+        </h4>
+        <p style="margin-top: 0.5rem;">authorized by Google and offered through Coursera</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">September 2024</p>
+      </div>
+      <div class="info-card">
+        <h4 style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+          <i class="fas fa-graduation-cap"></i> Foundations of Project Management
+        </h4>
+        <p style="margin-top: 0.5rem;">authorized by Google and offered through Coursera</p>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.3rem;">Juli 2022</p>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+
+<section id="cv" class="section">
+  <h2 class="section-title">Detaillierter Lebenslauf</h2>
+
+  <div class="cv-section">
+    <h2 style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 0.5rem;" onclick="toggleSection('beruf')">
+      <i class="fas fa-briefcase"></i> Berufserfahrung 
+      <i id="beruf-icon" class="fas fa-chevron-down" style="margin-left: auto; font-size: 0.8em; transition: transform 0.3s;"></i>
+    </h2>
+    
+    <div id="beruf-content" style="display: block;">
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Datenanalyst Praktikantin</div>
+            <div class="cv-company">Data Coffee GmbH • Horb am Neckar, Deutschland</div>
+          </div>
+          <div class="cv-date">Jun 2025 - Sep 2025</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.8rem;">Spezialisierung auf Signalverarbeitung und Zeitreihenanalyse</strong>
+            <div style="display: grid; gap: 0.5rem;">
+              <div>• Entwicklung von <strong>40+ KPIs</strong> für Produktion in der Landwirtschaft</div>
+              <div>• Konzeption von Informationsbereitstellung für Managemententscheidungen in <strong>Dashboards</strong></div>
+              <div>• Entwicklung von <strong>Algorithmen</strong> zur Klassifikation und Auswahl von Werkzeugmaschinenparametern</div>
+              <div>• Umsetzung verschiedener Algorithmen zur Analyse von <strong>Signalanomalien und Zeitreihendaten</strong></div>
+              <div>• Aufbau und Testen von hochentwickelten <strong>neuronalen Netzmodellen</strong> für prädiktive Analysen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Data Scientist Praktikantin</div>
+            <div class="cv-company">Webeet • Berlin (remote)</div>
+          </div>
+          <div class="cv-date">Aug 2025 - Sep 2025</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.8rem;">Anwendung eines RAG-Frameworks für ein Empfehlungssystem</strong>
+            <div style="display: grid; gap: 0.5rem;">
+              <div>• Entwicklung und Implementierung eines <strong>TOPSIS-basierten Empfehlungssystems</strong>, das durch Feature Engineering und Datenaggregation auf Bezirksebene präzise Immobilien-Rankings in Berlin ermöglicht</div>
+              <div>• Erstellung einer <strong>modularen ETL-Pipeline in Python</strong> zur automatisierten Verarbeitung und zum Laden von Daten aus diversen Dateiformaten (u.a. CSV, JSON, Excel) in Cloud-Datenbanken (<strong>AWS, NeonDB</strong>)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Beruflicher Wechsel nach Deutschland</div>
+            <div class="cv-company">Studium der deutschen Sprache und der Datenwissenschaft • Pforzheim, Deutschland</div>
+          </div>
+          <div class="cv-date">Mär 2022 - Heute</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <div style="display: grid; gap: 0.5rem;">
+              <div>• Aktive Teilnahme an kommunalen Digitalisierungs- und Hochschulprojekten (<strong>HSPF Zeugniss</strong>)</div>
+              <div>• Erreichtes Deutschniveau <strong>B2 (TELC-Zertifikat, Mai 2024)</strong>, Verbesserung der beruflichen Kommunikationsfähigkeiten</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header" style="align-items: flex-start;">
+          <div>
+            <div class="cv-title">Projekt- & Analysearbeit in öffentlichen Innovations- und Entwicklungsprogrammen</div>
+            <div class="cv-company">Das Nationale Institut für Strategische Studien (NISS, Regionalstudienleiterin), Institut für Sozial- und Wirtschaftsforschung (ISER, Mitbegründerin), Ministerium für wirtschaftliche Entwicklung und Handel der Ukraine (WM, Investitionspolitikabteilungsleiterin) • Kyiv, Ukraine</div>
+          </div>
+          <div class="cv-date" style="margin-left: auto; flex-shrink: 0;">Mai 2006 - Feb 2022</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <div style="display: grid; gap: 0.5rem;">
+              <div>• Entwicklung von <strong>Datenvisualisierungen und Dashboards</strong> für Forschungszwecke (ISER, NISS)</div>
+              <div>• Entwicklung und Steuerung von <strong>datenbasierten Reformprojekten</strong> im Bereich Investitionen, SDG und Digitalisierung (WM, ISER, NISS)</div>
+              <div>• Konzeption und Umsetzung von <strong>interdisziplinären Forschungsformaten</strong> mit Fokus auf Transparenz, Nachhaltigkeit und Datenwissenschaften in sozialwissenschaftlichen Kontexten (ISER, NISS)</div>
+              <div>• Anwendung <strong>agiler Methoden</strong> zur Umsetzung von Projekten in komplexen politischen Umfeldern (ISER, NISS)</div>
+              <div>• Leitung von <strong>Workshops</strong> und Zusammenarbeit mit Ministerien, Regionen und internationalen Organisationen (WM, ISER, NISS)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Leiter der Charterflugabteilung</div>
+            <div class="cv-company">Reise- und Tourismusagentur 'Pan Ukraine' • Kyiv, Ukraine</div>
+          </div>
+          <div class="cv-date">Mär 2004 - Apr 2006</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            Analyse und Verwaltung von <strong>10+ saisonalen Charterprogrammen</strong> mit Excel (z.B. Kapazität, Zeitreihen, Buchungsverhalten)
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Sales control engineer</div>
+            <div class="cv-company">Aerosvit Airlines • Kyiv, Ukraine</div>
+          </div>
+          <div class="cv-date">Sep 2001 - Mär 2004</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            Klärung offener Zahlungen durch Datenanalyse in CRM und Excel
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2 style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 0.5rem;" onclick="toggleSection('ausbildung')">
+      <i class="fas fa-graduation-cap"></i> Ausbildung
+      <i id="ausbildung-icon" class="fas fa-chevron-down" style="margin-left: auto; font-size: 0.8em; transition: transform 0.3s;"></i>
+    </h2>
+    
+    <div id="ausbildung-content" style="display: none;">
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">15-monatige intensive Weiterbildung in Data Analytics (Spezialisierung: Data Science)</div>
+            <div class="cv-company">Masterschool • Berlin, Deutschland</div>
+          </div>
+          <div class="cv-date">Jun 2024 - Sep 2025</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <div style="display: grid; gap: 0.8rem;">
+              <div>
+                <strong>Programmierung & Datenbanken:</strong><br>
+                Python, SQL, DBT
+              </div>
+              <div>
+                <strong>Machine Learning & Computer Vision:</strong><br>
+                Scikit-learn, TensorFlow, Neuronale Netze, LLMs (LangChain, Hugging Face), OpenCV
+              </div>
+              <div>
+                <strong>MLOps & Cloud:</strong><br>
+                Docker, AWS Cloud, MLflow
+              </div>
+              <div>
+                <strong>Datenvisualisierung & BI:</strong><br>
+                Tableau
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Ph.D. in Öffentlichem Management</div>
+            <div class="cv-company">Nationale Taras-Schewtschenko-Universität Kiew • Kyiv, Ukraine</div>
+          </div>
+          <div class="cv-date">2018 - 2022</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.5rem;">Thema der Dissertation:</strong> Transformation der Mechanismen der öffentlichen Verwaltung im Kontext der Ziele für nachhaltige Entwicklung (SDGs)<br><br>
+            <strong>Relevante Kurse:</strong> Systemanalyse und Modellierung in der öffentlichen Verwaltung (<strong>97%</strong>); Experten- und analytische Tätigkeit in der öffentlichen Verwaltung (<strong>100%</strong>)
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Master's degree in Public Administration</div>
+            <div class="cv-company">Die Nationale Akademie für öffentliche Verwaltung (NAPA) • Kyiv, Ukraine</div>
+          </div>
+          <div class="cv-date">2010 - 2014</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <strong>Relevante Kurse:</strong> Statistische Methoden - Kompetent in der Analyse für politische Entscheidungen (<strong>Gut</strong>); Politikanalyse - Expertise in der Formulierung effektiver Politiken (<strong>Sehr gut</strong>)
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Master- und Bachelor-Abschluss in Radioengineering</div>
+            <div class="cv-company">Nationale Luftfahrtuniversität Kiew • Kyiv, Ukraine</div>
+          </div>
+          <div class="cv-date">1996 - 2001</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            <strong>Relevante Kurse:</strong> 791 Stunden in Mathematik, 310 Stunden in technischer Zeichnung und Informatik<br>
+            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-weight: 600; display: inline-block; margin-top: 0.5rem;">Abschluss mit Auszeichnung (rotes Diplom)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2 style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 0.5rem;" onclick="toggleSection('freiwillig')">
+      <i class="fas fa-users"></i> Freiwilligenarbeit & Interessen
+      <i id="freiwillig-icon" class="fas fa-chevron-down" style="margin-left: auto; font-size: 0.8em; transition: transform 0.3s;"></i>
+    </h2>
+    
+    <div id="freiwillig-content" style="display: none;">
+      <div class="cv-entry">
+        <div class="cv-header">
+          <div>
+            <div class="cv-title">Sachkundiges Mitglied</div>
+            <div class="cv-company">Internationaler Beirat der Stadt Pforzheim • Pforzheim, Deutschland</div>
+          </div>
+          <div class="cv-date">2024 - 2029</div>
+        </div>
+        <div class="cv-description">
+          <div style="background: rgba(0,128,128,0.05); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+            Arbeitsgruppe für Wirtschaft, Stadtplanung und Ökologie
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,128,128,0.1), rgba(255,127,80,0.1)); border-radius: 12px; border: 2px solid rgba(0,128,128,0.2);">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-heart"></i> Interessen</h4>
+        <p style="font-size: 1rem; font-weight: 500;">Qi Gong, Tai Chi</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2><i class="fas fa-language"></i> Sprachen</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem;">
+      <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,128,128,0.1), rgba(0,128,128,0.05)); border-radius: 12px; box-shadow: var(--shadow);">
+        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">UA</div>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">Ukrainisch</h4>
+        <p style="font-weight: 600; color: var(--secondary-color);">Muttersprache</p>
+      </div>
+      <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,128,128,0.1), rgba(0,128,128,0.05)); border-radius: 12px; box-shadow: var(--shadow);">
+        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">RU</div>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">Russisch</h4>
+        <p style="font-weight: 600; color: var(--secondary-color);">Muttersprache</p>
+      </div>
+      <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,128,128,0.1), rgba(0,128,128,0.05)); border-radius: 12px; box-shadow: var(--shadow);">
+        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">EN</div>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">Englisch</h4>
+        <p style="font-weight: 600; color: var(--secondary-color);">C1</p>
+      </div>
+      <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,128,128,0.1), rgba(0,128,128,0.05)); border-radius: 12px; box-shadow: var(--shadow);">
+        <div style="width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">DE</div>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">Deutsch</h4>
+        <p style="font-weight: 600; color: var(--secondary-color);">B2 (TELC 2024)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleSection(sectionId) {
+  const content = document.getElementById(sectionId + '-content');
+  const icon = document.getElementById(sectionId + '-icon');
+  
+  if (content.style.display === 'none') {
+    content.style.display = 'block';
+    icon.style.transform = 'rotate(0deg)';
+  } else {
+    content.style.display = 'none';
+    icon.style.transform = 'rotate(-90deg)';
+  }
+}
+</script>
+
+
+
+</section>
+</div>
+<script>
+function showSection(e){document.querySelectorAll(".section").forEach(e=>e.classList.remove("active")),document.querySelectorAll(".nav-tab").forEach(e=>e.classList.remove("active")),document.getElementById(e).classList.add("active"),event.target.classList.add("active"),window.scrollTo({top:0,behavior:"smooth"})}const primaryColor=getComputedStyle(document.documentElement).getPropertyValue("--primary-color").trim(),secondaryColor=getComputedStyle(document.documentElement).getPropertyValue("--secondary-color").trim(),primaryColorTransparent=primaryColor+"40",chartDefaultOptions={responsive:!0,maintainAspectRatio:!1};new Chart(document.getElementById("skillRadarChart"),{type:"radar",data:{labels:["Python","SQL","Tableau","ML","MS Excel","Time Series","Computer Vision","NLP"],datasets:[{label:"Proficiency",data:[4,4,4,4,5,4,4,3.5],backgroundColor:primaryColorTransparent,borderColor:primaryColor,borderWidth:2,pointBackgroundColor:primaryColor}]},options:{...chartDefaultOptions,plugins:{legend:{display:!1}},scales:{r:{suggestedMin:0,suggestedMax:5,ticks:{stepSize:1,font:{size:10}},pointLabels:{font:{size:10}}}}}}),new Chart(document.getElementById("softSkillsChart"),{type:"radar",data:{labels:["Analytische Fähigkeiten","Strukturiertes Vorgehen","Zielverfolgung","Kommunikation","Kritisches Denken","Teamarbeit"],datasets:[{label:"Soft Skills",data:[5,5,5,4.5,5,5],backgroundColor:secondaryColor+"40",borderColor:secondaryColor,borderWidth:2,pointBackgroundColor:secondaryColor}]},options:{...chartDefaultOptions,plugins:{legend:{display:!1}},scales:{r:{suggestedMin:0,suggestedMax:5,ticks:{stepSize:1,font:{size:10}},pointLabels:{font:{size:9}}}}}}),new Chart(document.getElementById("projectsBarChart"),{type:"bar",data:{labels:["2018","2019","2024","2025"],datasets:[{label:"Projects",data:[4,2,2,7],backgroundColor:secondaryColor,borderRadius:4,borderWidth:0}]},options:{...chartDefaultOptions,plugins:{legend:{display:!1}},scales:{y:{beginAtZero:!0,ticks:{stepSize:1}}}}});
+</script>
+</body>
+</html>

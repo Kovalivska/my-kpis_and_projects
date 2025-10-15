@@ -30,18 +30,24 @@
     grid-template-columns: 1fr;
   }
 
-  /* Allows CV header items to wrap */
+  /* --- FINAL FIX FOR CV SECTION --- */
+  
+  /* Force header to stack elements vertically */
   .cv-header {
-    flex-wrap: wrap;
+    display: block; /* Overrides flex behavior */
   }
 
-  /* Fixes long words in CV titles and companies */
+  /* Force long words to break everywhere inside the CV entry */
   .cv-title,
-  .cv-company {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+  .cv-company,
+  .cv-description {
     word-break: break-word;
-    min-width: 0; /* Important fix for flexbox */
+    overflow-wrap: break-word;
+  }
+  
+  /* Ensure date has some space */
+  .cv-date {
+      margin-top: 8px; /* Adds a small space above the date */
   }
 
 }

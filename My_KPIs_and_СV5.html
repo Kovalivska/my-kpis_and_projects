@@ -17,39 +17,33 @@
   margin-top: 2rem;
 }
 
+/* --- Styles for Mobile View --- */
 @media (max-width: 768px) {
+  
+  /* Makes Journey section vertical */
   .journey-grid-container {
-    grid-template-columns: 1fr; /* 1 column on mobile */
-	.cv-header {
-	  flex-direction: column; /* Stack items vertically */
-	  align-items: flex-start; /* Align to the left */
-	}
-	.cv-title,
-	.cv-company {
-	  word-break: break-word; /* Force long words to break and wrap */
-	}
+    grid-template-columns: 1fr;
   }
-}
-/* Styles for the responsive Sprachen section */
-.sprachen-grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
-  gap: 1rem;
-  margin-top: 1rem;
-}
 
-@media (max-width: 768px) {
+  /* Makes Sprachen section vertical */
   .sprachen-grid-container {
-    grid-template-columns: 1fr; /* 1 column on mobile */
-	.cv-header {
-	  flex-direction: column; /* Stack items vertically */
-	  align-items: flex-start; /* Align to the left */
-	}
-	.cv-title,
-	.cv-company {
-	  word-break: break-word; /* Force long words to break and wrap */
-	}
+    grid-template-columns: 1fr;
   }
+
+  /* Allows CV header items to wrap */
+  .cv-header {
+    flex-wrap: wrap;
+  }
+
+  /* Fixes long words in CV titles and companies */
+  .cv-title,
+  .cv-company {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    min-width: 0; /* Important fix for flexbox */
+  }
+
 }
 </style>
 </head>

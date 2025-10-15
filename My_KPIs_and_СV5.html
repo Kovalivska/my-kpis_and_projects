@@ -20,8 +20,9 @@
 @media (max-width: 768px) {
   .journey-grid-container {
     grid-template-columns: 1fr; /* 1 column on mobile */
-	.cv-date {
-	  white-space: normal !important; /* Allows dates to wrap and overrides other rules */
+	.cv-header {
+	  flex-direction: column; /* Stack items vertically */
+	  align-items: flex-start; /* Align to the left */
 	}
   }
 }
@@ -36,8 +37,9 @@
 @media (max-width: 768px) {
   .sprachen-grid-container {
     grid-template-columns: 1fr; /* 1 column on mobile */
-	.cv-date {
-	  white-space: normal !important; /* Allows dates to wrap and overrides other rules */
+	.cv-header {
+	  flex-direction: column; /* Stack items vertically */
+	  align-items: flex-start; /* Align to the left */
 	}
   }
 }

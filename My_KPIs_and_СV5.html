@@ -20,6 +20,9 @@
 @media (max-width: 768px) {
   .journey-grid-container {
     grid-template-columns: 1fr; /* 1 column on mobile */
+	.cv-date {
+	  white-space: normal; /* Allow dates to wrap on new lines */
+	}
   }
 }
 /* Styles for the responsive Sprachen section */
@@ -33,6 +36,9 @@
 @media (max-width: 768px) {
   .sprachen-grid-container {
     grid-template-columns: 1fr; /* 1 column on mobile */
+	.cv-date {
+	  white-space: normal; /* Allow dates to wrap on new lines */
+	}
   }
 }
 </style>
@@ -233,7 +239,7 @@
 	</div>
 
 	<style>
-	  /* Desktop version - показывать по умолчанию */
+	  /* Desktop version  */
 	  .timeline-desktop {
 	    display: block;
 	  }
@@ -241,7 +247,7 @@
 	    display: none;
 	  }
   
-	  /* Mobile version - показывать на экранах меньше 768px */
+	  /* Mobile version less 768px */
 	  @media (max-width: 768px) {
 	    .timeline-desktop {
 	      display: none !important;
@@ -250,6 +256,9 @@
 	      display: block !important;
 	      position: relative;
 	      min-height: 400px;
+		  .cv-date {
+		    white-space: normal; /* Allow dates to wrap on new lines */
+		  }
 	    }
 	  }
 	</style>

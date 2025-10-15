@@ -33,7 +33,14 @@
 .sprachen-grid-container {grid-template-columns: 1fr;}
 .cv-header {display: block;}
 .cv-title,.cv-company,.cv-description {word-break: break-word; overflow-wrap: break-word;}
-.cv-date {margin-top: 8px;}
+.cv-date {margin-top: 8px;
+	/* Show mobile timeline and hide desktop one */
+	  .timeline-desktop {
+	    display: none !important; /* Force hide the desktop version */
+	  }
+	  .timeline-mobile {
+	    display: block !important; /* Force show the mobile version */
+	  }}
 }
 </style>
 </head>
